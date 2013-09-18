@@ -19,8 +19,6 @@ public class redis_launcher {
      */
     public static void main(String[] args) {
 
-        JedisPoolConfig config = new JedisPoolConfig();
-
         JedisPool pool = new JedisPool(new JedisPoolConfig(), "101.227.253.25");
 
         // 连接redis服务
