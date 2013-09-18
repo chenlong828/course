@@ -4,14 +4,15 @@
  * Description:
  */
 
-import java.io.IOException;
-import java.util.*;
-
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.*;
+
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.StringTokenizer;
 
 
 public class WordCount {
