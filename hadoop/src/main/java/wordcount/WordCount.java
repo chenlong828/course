@@ -1,4 +1,4 @@
-/**
+package wordcount; /**
  * User: ChenLong
  * Created Date: 2/3/13 6:02 下午
  * Description:
