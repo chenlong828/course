@@ -15,8 +15,6 @@ import java.util.Iterator;
  * Created Date: 9/18/13 6:50 下午
  * Description:
  */
-
-
 public class Reduce extends MapReduceBase implements Reducer<Text, IntWritable, Text, IntWritable>
 {
     public void reduce(Text key, Iterator<IntWritable> values, OutputCollector<Text, IntWritable> output,
