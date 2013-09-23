@@ -18,12 +18,16 @@ public class mangodb_launcher {
 
         // get handle to "mydb"
         DB db = mongoClient.getDB("mydb");
+
+        // Authenticate - optional
         if (db.authenticate("ambo", "ambo".toCharArray()))
         {
             System.out.println("Authenticate success!");
         }
-
-        // Authenticate - optional
+        else
+        {
+            return;
+        }
 
         // get a list of the collections in this database and print them out
         Set<String> collectionNames = db.getCollectionNames();
