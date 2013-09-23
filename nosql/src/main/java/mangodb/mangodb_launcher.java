@@ -18,9 +18,12 @@ public class mangodb_launcher {
 
         // get handle to "mydb"
         DB db = mongoClient.getDB("mydb");
+        if (db.authenticate("ambo", "ambo".toCharArray()))
+        {
+            System.out.println("Authenticate success!");
+        }
 
         // Authenticate - optional
-        // boolean auth = db.authenticate("foo", "bar");
 
         // get a list of the collections in this database and print them out
         Set<String> collectionNames = db.getCollectionNames();
@@ -46,7 +49,10 @@ public class mangodb_launcher {
 
         // now, lets add lots of little documents to the collection so we can explore queries and cursors
         for (int i = 0; i < 100; i++) {
-            testCollection.insert(new BasicDBObject().append("i", i));
+            BasicDBObject dbo = new BasicDBObject();
+            dbo.append("key", "value");
+            dbo.append("i", i);
+            testCollection.insert(dbo);
         }
         System.out.println("total # of documents after inserting 100 small ones (should be 101) " + testCollection.getCount());
 
