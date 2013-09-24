@@ -38,15 +38,18 @@ public class spring_mongo {
 
         repository.deleteAll();
 
+        Customer alice = new Customer("Alice", "Smith", new Customer());
+        Customer bob = new Customer("Bob", "Smith", alice);
         // save a couple of customers
-        repository.save(new Customer("Alice", "Smith"));
-        repository.save(new Customer("Bob", "Smith"));
+        repository.save(alice);
+        repository.save(bob);
 
         // fetch all customers
         System.out.println("Customers found with findAll():");
         System.out.println("-------------------------------");
         for (Customer customer : repository.findAll()) {
             System.out.println(customer);
+
         }
         System.out.println();
 
@@ -59,6 +62,10 @@ public class spring_mongo {
         System.out.println("--------------------------------");
         for (Customer customer : repository.findByLastName("Smith")) {
             System.out.println(customer);
+            if (customer.getRecommender() != null)
+            {
+                System.out.println(customer.getRecommender());
+            }
         }
 
         context.close();
