@@ -3,7 +3,10 @@ package sort;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.*;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
@@ -13,22 +16,21 @@ import java.io.IOException;
  * Description:
  */
 public class SortExample {
-    public static void main(String[] args) throws IOException
-    {
-        JobConf conf = new JobConf(SortExample.class);
-        conf.setJobName("Sort_Example");
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+        Job job = new Job();
 
 
-        conf.setMapperClass(Map.class);
-        conf.setReducerClass(Reduce.class);
+        job.setMapperClass(Map.class);
+        job.setReducerClass(Reduce.class);
 
-        conf.setInputFormat(TextInputFormat.class);
-        conf.setOutputKeyClass(IntWritable.class);
-        conf.setOutputValueClass(Text.class);
+        job.setInputFormatClass(TextInputFormat.class);
+        job.setOutputKeyClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
 
-        FileInputFormat.setInputPaths(conf, new Path(args[0]));
-        FileOutputFormat.setOutputPath(conf, new Path(args[1]));
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-        JobClient.runJob(conf);
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+
     }
 }

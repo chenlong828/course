@@ -2,10 +2,7 @@ package sort;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.MapReduceBase;
-import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapred.Reducer;
-import org.apache.hadoop.mapred.Reporter;
+import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -15,14 +12,12 @@ import java.util.Iterator;
  * Created Date: 9/18/13 6:50 下午
  * Description:
  */
-public class Reduce extends MapReduceBase implements Reducer<IntWritable, Text, Text, IntWritable>
+public class Reduce extends Reducer<IntWritable, Text, Text, IntWritable>
 {
-    public void reduce(IntWritable key, Iterator<Text> values, OutputCollector<Text, IntWritable> output,
-                       Reporter reporter) throws IOException
-    {
+    public void reduce(IntWritable key, Iterator<Text> values, Context context) throws IOException, InterruptedException {
         while(values.hasNext())
         {
-            output.collect(values.next(), key);
+            context.write(values.next(), key);
         }
     }
 }
