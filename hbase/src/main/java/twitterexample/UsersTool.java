@@ -19,13 +19,6 @@ public class UsersTool {
 
     private static final Logger log = Logger.getLogger(UsersTool.class);
 
-    public static final String usage =
-            "usertool action ...\n" +
-                    "  help - print this message and exit.\n" +
-                    "  add user name email password - add a new user.\n" +
-                    "  get user - retrieve a specific user.\n" +
-                    "  list - list all installed users.\n";
-
     public static void main(String[] args) throws IOException {
         Configuration myConf = new Configuration();
         myConf.set("hbase.master","101.227.253.67:44801");
