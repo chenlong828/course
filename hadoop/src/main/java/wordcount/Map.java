@@ -26,7 +26,7 @@ public class Map extends MapReduceBase implements Mapper<LongWritable, Text, Tex
                     Reporter reporter) throws IOException
     {
         String line = value.toString();
-        StringTokenizer tokenizer = new StringTokenizer(line);
+        StringTokenizer tokenizer = new StringTokenizer(line," .,;\"\t\n\r\f", false);
         while (tokenizer.hasMoreTokens())
         {
             word.set(tokenizer.nextToken());

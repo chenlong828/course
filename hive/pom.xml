@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ambo.course</groupId>
-    <artifactId>hadoop</artifactId>
+    <artifactId>hive</artifactId>
     <version>1.0</version>
 
     <dependencies>
@@ -14,7 +14,10 @@
             <artifactId>hadoop-client</artifactId>
             <version>1.2.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>0.10.0</version>
+        </dependency>
     </dependencies>
-
-    
 </project>
