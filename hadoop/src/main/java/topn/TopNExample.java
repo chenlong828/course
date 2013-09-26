@@ -19,6 +19,7 @@ public class TopNExample {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
         Job job = new Job();
+        job.setJarByClass(TopNExample.class);
 
         job.setMapperClass(Map.class);
         job.setReducerClass(Reduce.class);

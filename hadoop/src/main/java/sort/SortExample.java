@@ -19,7 +19,7 @@ public class SortExample {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Job job = new Job();
 
-	job.setJarByClass(SortExample.class);
+	    job.setJarByClass(SortExample.class);
         job.setMapperClass(Map.class);
         job.setReducerClass(Reduce.class);
 
