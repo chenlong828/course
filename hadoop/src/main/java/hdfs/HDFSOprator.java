@@ -67,9 +67,10 @@ public class HDFSOprator {
     public static String readFile(String fileName) throws IOException {
         Path path = new Path(fileName);
         FSDataInputStream inputStream = hdfs.open(path);
-        String fileContent = inputStream.readUTF();
+        byte[] buf = new byte[10];
+        inputStream.read(buf,0,10);
         inputStream.close();
-        return fileContent;
+        return "10 bytes read";
 
     }
 
