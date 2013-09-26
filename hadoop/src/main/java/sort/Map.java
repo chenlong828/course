@@ -26,11 +26,5 @@ public class Map extends Mapper<LongWritable, Text, IntWritable, Text>
         count.set(word_count);
         context.write(count, word);
 
-//        StringTokenizer tokenizer = new StringTokenizer(line);
-//        while (tokenizer.hasMoreTokens())
-//        {
-//            word.set(tokenizer.nextToken());
-//            output.collect(word, one);
-//        }
     }
 }
