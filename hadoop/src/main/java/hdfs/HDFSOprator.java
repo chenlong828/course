@@ -57,8 +57,9 @@ public class HDFSOprator {
 			throws IOException {
 		Path path = new Path(fileName);
 		FSDataOutputStream outputStream = hdfs.create(path);
-		byte[] buffer = content.getBytes();
-		outputStream.write(buffer, 0, buffer.length);
+//		byte[] buffer = content.getBytes();
+//		outputStream.write(buffer, 0, buffer.length);
+        outputStream.writeChars(content);
 		outputStream.close();
 	}
 
