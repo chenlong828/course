@@ -62,6 +62,20 @@ public class HDFSOprator {
 		outputStream.close();
 	}
 
+    public static String readFile(String fileName) throws IOException {
+        Path path = new Path(fileName);
+        FSDataInputStream inputStream = hdfs.open(path);
+        String fileContent = inputStream.readUTF();
+        inputStream.close();
+        return fileContent;
+
+    }
+
+    public static void deleteFile(String fileName) throws IOException {
+        Path path = new Path(fileName);
+        hdfs.delete(path);
+    }
+
 	public static void getFileBlocks(String fileName) throws IOException {
 		Path path = new Path(fileName);
 		FileStatus fileStatus = hdfs.getFileStatus(path);
