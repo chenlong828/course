@@ -60,6 +60,7 @@ public class HDFSOprator {
 //		byte[] buffer = content.getBytes();
 //		outputStream.write(buffer, 0, buffer.length);
         outputStream.writeChars(content);
+        outputStream.writeChars("\n");
 		outputStream.close();
 	}
 
