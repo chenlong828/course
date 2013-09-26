@@ -68,9 +68,10 @@ public class HDFSOprator {
         Path path = new Path(fileName);
         FSDataInputStream inputStream = hdfs.open(path);
         byte[] buf = new byte[10];
-        inputStream.read(buf,0,10);
+//        inputStream.read(buf,0,10);
+        String fileContent = inputStream.readLine();
         inputStream.close();
-        return "10 bytes read";
+        return fileContent;
 
     }
 
