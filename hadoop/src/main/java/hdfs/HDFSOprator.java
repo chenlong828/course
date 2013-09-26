@@ -77,6 +77,7 @@ public class HDFSOprator {
     public static void deleteFile(String fileName) throws IOException {
         Path path = new Path(fileName);
         hdfs.delete(path, true);
+        System.out.println(fileName + " deleted");
     }
 
 	public static void getFileBlocks(String fileName) throws IOException {
