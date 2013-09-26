@@ -1,4 +1,5 @@
-hadoop_course
+Course
 =============
 
-The hadoop course example.
+The ambo course example, include the nosq, hadoop, hive and hbase example.
+
