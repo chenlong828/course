@@ -18,7 +18,7 @@ public class HDFSDemo {
             System.out.println(HDFSOprator.readFile(USER_FILE));
             HDFSOprator.deleteFile(USER_FILE);
         }
-		HDFSOprator.createFile(USER_FILE, "ambo-cloud");
+		HDFSOprator.createFile(USER_FILE, "ambo-cloud\n");
 		HDFSOprator.getFileBlocks(USER_FILE);
 	}
 

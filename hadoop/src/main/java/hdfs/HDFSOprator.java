@@ -73,7 +73,7 @@ public class HDFSOprator {
 
     public static void deleteFile(String fileName) throws IOException {
         Path path = new Path(fileName);
-        hdfs.delete(path);
+        hdfs.delete(path, true);
     }
 
 	public static void getFileBlocks(String fileName) throws IOException {
