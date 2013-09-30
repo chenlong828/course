@@ -26,7 +26,7 @@ public class UsersTool {
         myConf.set("hbase.zookeeper.quorum", "101.227.253.67");
         HTableInterface usersTable = new HTable(myConf, "users");
 
-        String userName = "ambo2";
+        String userName = "tongtech";
 
         UsersDAO dao = new UsersDAO(usersTable);
 
@@ -42,7 +42,7 @@ public class UsersTool {
         if (u == null)
         {
             System.out.println(String.format("Not found user %s", userName));
-            dao.addUser(userName, userName,"hbase@ambo.com", "ambo_pwd");
+            dao.addUser(userName, userName,"hbase@tongtech.com", "tongtech_pwd");
         }
         else
         {

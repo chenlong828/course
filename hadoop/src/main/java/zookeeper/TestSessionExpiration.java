@@ -54,28 +54,6 @@ public class TestSessionExpiration {
             System.out.println("Got session expired on zk1!");
             return;
         }
-        // 3.2.0 and later:
-        // There's a gotcha though - In version 3.2.0 and later if you
-        // run this on against a quorum (vs standalone) you may get a
-        // KeeperException.SessionMovedException instead. This is
-        // thrown if a client moved from one server to a second, but
-        // then attempts to talk to the first server (should never
-        // happen, but could in certain bad situations), this example
-        // simulates that situation in the sense that the client with
-        // session id zk1.getSessionId() has moved
-        // 
-        // One way around session moved on a quorum is to have each
-        // client connect to the same, single server in the cluster
-        // (so pass a single host:port rather than a list). This 
-        // will ensure that you get the session expiration, and
-        // not session moved exception.
-        //
-        // Again, if you run against standalone server you won't see
-        // this. If you run against a server version 3.1.x or earlier
-        // you won't see this.
-        // If you run against quorum you need to easily determine which
-        // server zk1 is attached to - we are adding this capability
-        // in 3.3.0 - and have zk2 attach to that same server.
 
         System.err.println("Oops, this should NOT have happened!");
     }
