@@ -1,4 +1,4 @@
-package topn;
+package mapreduce.sort;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -15,23 +15,22 @@ import java.io.IOException;
  * Created Date: 9/18/13 6:49 下午
  * Description:
  */
-public class TopNExample {
+public class SortExample {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-
         Job job = new Job();
-        job.setJarByClass(TopNExample.class);
 
+	    job.setJarByClass(SortExample.class);
         job.setMapperClass(Map.class);
         job.setReducerClass(Reduce.class);
 
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(Text.class);
-        job.setNumReduceTasks(1);
 
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
+
     }
 }

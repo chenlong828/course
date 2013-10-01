@@ -1,4 +1,4 @@
-package topn;
+package mapreduce.topn;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;

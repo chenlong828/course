@@ -1,4 +1,4 @@
-package wordcount; /**
+package mapreduce.wordcount; /**
  * User: ChenLong
  * Created Date: 2/3/13 6:02 下午
  * Description:
@@ -10,7 +10,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.*;
 
 import java.io.IOException;
-import java.util.Iterator;
 
 
 public class WordCount {
@@ -19,7 +18,7 @@ public class WordCount {
     public static void main(String[] args) throws IOException
     {
         JobConf conf = new JobConf(WordCount.class);
-        conf.setJobName("wordcount");
+        conf.setJobName("mapreduce/wordcount");
 
         conf.setOutputKeyClass(Text.class);
         conf.setOutputValueClass(IntWritable.class);

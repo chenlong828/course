@@ -1,4 +1,4 @@
-package sort;
+package mapreduce.sort;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;

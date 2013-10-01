@@ -1,4 +1,4 @@
-package topn;
+package mapreduce.topn;
 
 import java.lang.String;
 
