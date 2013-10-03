@@ -25,9 +25,23 @@
             <version>1.5.3</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.zookeeper</groupId>
+            <groupId>org.apache.hadoop</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>3.3.6</version>
+            <version>3.3.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.jms</groupId>
+                    <artifactId>jms</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <build>
@@ -40,23 +54,6 @@
               <target>1.6</target>
             </configuration>
           </plugin>
-            <plugin>
-                <groupId>org.apache.avro</groupId>
-                <artifactId>avro-maven-plugin</artifactId>
-                <version>1.7.5</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>schema</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>src/main/resources</sourceDirectory>
-                            <outputDirectory>src/main/java</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     
