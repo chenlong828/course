@@ -13,9 +13,9 @@ public class HDFSOprator {
 
 	static {
 		Configuration conf = new Configuration();
-        conf.set("fs.default.name","hdfs://hadoop-pd:9000");
-        conf.set("dfs.replication", "1");
-        conf.set("dfs.permissions", "false");
+        //conf.set("fs.default.name","hdfs://hadoop-pd:9000");
+        //conf.set("dfs.replication", "1");
+        //conf.set("dfs.permissions", "false");
 		conf.reloadConfiguration();
 
 		try {
